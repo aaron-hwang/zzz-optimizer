@@ -1,8 +1,18 @@
 package wengine
 
+import "zzz-optimizer/pkg/character"
+
 var (
 	wengineCatalog map[string]WengineConfig
 )
+
+type Wengine struct {
+	Level      int
+	Refinement int
+	Ascension  int
+	// a lil sus but should be fine
+	Type character.CharacterRole
+}
 
 type WengineRarity int
 
