@@ -10,6 +10,32 @@ func Register(key string, config CharacterConfig) {
 	CharacterCatalog[key] = config
 }
 
+// Why am i seperating config and instances? Who knows!!!! This might just end up being redundant......
+type Character struct {
+	Level           int
+	Ascension       int
+	MindscapeCinema int
+	SkillLevels     SkillLevels
+}
+
+type SkillLevels struct {
+	Core        int
+	Basic       int
+	Special     int
+	Assists     int
+	UltAndChain int
+}
+
+// Mostly for debugging
+func NewDefaultChar() Character {
+	char := Character{
+		Level:           1,
+		Ascension:       0,
+		MindscapeCinema: 0,
+		SkillLevels:     SkillLevels{Core: 1, Basic: 1, Special: 1, Assists: 1, UltAndChain: 1}}
+	return char
+}
+
 type CharacterRarity int
 
 const (
@@ -58,6 +84,8 @@ type SkillInfo struct {
 	Assist      Assist
 	Ult         Ult
 	ChainAttack ChainAttack
+	Core        CoreSkill
+	Additional  AdditionalAbility
 }
 
 type BasicAttack struct {
@@ -92,4 +120,10 @@ const (
 type Assist struct {
 	AssistType AssistType
 	TargetType model.TargetType
+}
+
+type CoreSkill struct {
+}
+
+type AdditionalAbility struct {
 }
