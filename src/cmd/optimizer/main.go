@@ -23,6 +23,8 @@ func main() {
 		Optimizer app should keep track of state of player account, keep track of current characters, weps etc
 		Mimic GO design i guess? Initialize
 	*/
+
+	// First test should be to register a bunch of characters, have a character management menu where user can press button to open up menu that allows them to add character
 	a := app.New()
 	w := a.NewWindow("ZZZ Optimizer")
 	Optimizer := optimizer.NewOptimizer()

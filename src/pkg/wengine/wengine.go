@@ -1,11 +1,12 @@
 package wengine
 
 import (
+	"zzz-optimizer/pkg/key"
 	"zzz-optimizer/pkg/model"
 )
 
 var (
-	wengineCatalog map[string]WengineConfig
+	wengineCatalog map[key.Wengine]WengineConfig
 )
 
 type Wengine struct {
@@ -29,6 +30,6 @@ type WengineConfig struct {
 }
 
 // Register a wengine config (assert that a wengine of this type can exist essentially)
-func Register(key string, config WengineConfig) {
+func Register(key key.Wengine, config WengineConfig) {
 	wengineCatalog[key] = config
 }
