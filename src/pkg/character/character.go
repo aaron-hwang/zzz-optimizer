@@ -1,21 +1,31 @@
 package character
 
-import "zzz-optimizer/pkg/model"
-
-var (
-	CharacterCatalog map[string]CharacterConfig
+import (
+	"zzz-optimizer/pkg/drivedisk"
+	"zzz-optimizer/pkg/key"
+	"zzz-optimizer/pkg/model"
+	"zzz-optimizer/pkg/wengine"
 )
 
-func Register(key string, config CharacterConfig) {
+var (
+	CharacterCatalog map[key.Character]CharacterConfig
+)
+
+func Register(key key.Character, config CharacterConfig) {
 	CharacterCatalog[key] = config
 }
 
 // Why am i seperating config and instances? Who knows!!!! This might just end up being redundant......
 type Character struct {
+	Key             key.Character
 	Level           int
 	Ascension       int
 	MindscapeCinema int
 	SkillLevels     SkillLevels
+	// Their equipped items
+	Wengine wengine.Wengine
+	// Where each index in the slice is the slot
+	Disks [6]drivedisk.DriveDisk
 }
 
 type SkillLevels struct {
@@ -43,17 +53,6 @@ const (
 	SRank CharacterRarity = 5
 )
 
-type CharacterRole int
-
-const (
-	Role_INVALID CharacterRole = -1
-	Role_ATTACK  CharacterRole = 0
-	Role_ANOMALY CharacterRole = 1
-	Role_SUPPORT CharacterRole = 2
-	Role_DEFENSE CharacterRole = 3
-	Role_STUN    CharacterRole = 4
-)
-
 type CharacterConfig struct {
 	Rarity     CharacterRarity
 	Promotions []PromotionData
@@ -61,7 +60,7 @@ type CharacterConfig struct {
 	Faction string
 	// Ditto
 	Element   string
-	Role      CharacterRole
+	Role      model.Role
 	SkillInfo SkillInfo
 }
 

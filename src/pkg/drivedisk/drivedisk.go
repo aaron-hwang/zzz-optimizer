@@ -1,8 +1,16 @@
 package drivedisk
 
+import "zzz-optimizer/pkg/key"
+
 var (
-	diskCatalog map[string]DiskConfig
+
+	// TODO: make thread safe (add a mutex)
+	diskCatalog map[key.DriveDisk]DiskConfig
 )
+
+type DriveDisk struct {
+	Set key.DriveDisk
+}
 
 type DiskRarity int
 
@@ -16,6 +24,6 @@ type DiskConfig struct {
 	Rarity DiskRarity
 }
 
-func Register(key string, config DiskConfig) {
+func Register(key key.DriveDisk, config DiskConfig) {
 	diskCatalog[key] = config
 }
