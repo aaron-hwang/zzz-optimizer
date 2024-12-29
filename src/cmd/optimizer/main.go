@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
+	"image/color"
 	"zzz-optimizer/pkg/character"
 	"zzz-optimizer/pkg/optimizer"
 
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/widget"
+	"fyne.io/fyne/v2/canvas"
+	"fyne.io/fyne/v2/container"
 )
 
 // Main entry point for the actual program currently
@@ -25,7 +27,10 @@ func main() {
 	w := a.NewWindow("ZZZ Optimizer")
 	Optimizer := optimizer.NewOptimizer()
 	Optimizer.AddCharacter(character.NewDefaultChar())
-	str := fmt.Sprintf("%#v", Optimizer)
-	w.SetContent(widget.NewLabel(str))
+	green := color.NRGBA{R: 0, G: 180, B: 0, A: 255}
+	text1 := canvas.NewText("Hello", green)
+	content := container.NewWithoutLayout(text1)
+	//str := fmt.Sprintf("%#v", Optimizer)
+	w.SetContent(content)
 	w.ShowAndRun()
 }
