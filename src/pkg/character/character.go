@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	CharacterCatalog map[key.Character]CharacterConfig
+	CharacterCatalog map[key.Character]CharacterConfig = make(map[key.Character]CharacterConfig)
 )
 
 func Register(key key.Character, config CharacterConfig) {

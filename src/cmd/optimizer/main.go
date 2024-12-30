@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"image/color"
+	"strings"
 	"zzz-optimizer/pkg/character"
 	"zzz-optimizer/pkg/optimizer"
 
@@ -29,8 +30,12 @@ func main() {
 	w := a.NewWindow("ZZZ Optimizer")
 	Optimizer := optimizer.NewOptimizer()
 	Optimizer.AddCharacter(character.NewDefaultChar())
+	var sb strings.Builder
+	for key := range character.CharacterCatalog {
+		sb.WriteString(string(key))
+	}
 	green := color.NRGBA{R: 0, G: 180, B: 0, A: 255}
-	text1 := canvas.NewText("Hello", green)
+	text1 := canvas.NewText(sb.String(), green)
 	content := container.NewWithoutLayout(text1)
 	//str := fmt.Sprintf("%#v", Optimizer)
 	w.SetContent(content)
