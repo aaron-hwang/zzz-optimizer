@@ -13,6 +13,11 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
+const (
+	WIDTH  = 1920
+	HEIGHT = 1080
+)
+
 // The window that is currently on top to be rendered
 //var top fyne.Window
 
@@ -51,9 +56,11 @@ func main() {
 		pageContent.Refresh()
 	}
 	tutorial := container.NewBorder(
-		container.NewVBox(pageTitle, widget.NewSeparator()), nil, nil, nil)
+		container.NewVBox(pageTitle, widget.NewSeparator()), nil, nil, nil, pageContent)
 	split := container.NewHSplit(makeSidebarNav(setMenu), tutorial)
+	split.Offset = 0.2
 	w.SetContent(split)
+	w.Resize(fyne.NewSize(WIDTH, HEIGHT))
 	w.ShowAndRun()
 }
 
