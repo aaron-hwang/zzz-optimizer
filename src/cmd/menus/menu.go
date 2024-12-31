@@ -10,6 +10,7 @@ type Menu struct {
 var (
 	Menus = map[string]Menu{
 		"characters": {"Characters", charSelect},
+		"teams":      {"Teams", teams},
 	}
 
 	MenuIndex = map[string][]string{
