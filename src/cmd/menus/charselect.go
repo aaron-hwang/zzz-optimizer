@@ -1,6 +1,7 @@
 package menus
 
 import (
+	"fmt"
 	"zzz-optimizer/pkg/character"
 
 	"fyne.io/fyne/v2"
@@ -12,7 +13,7 @@ func charSelect(w fyne.Window) fyne.CanvasObject {
 	content := container.NewVBox()
 	for key := range character.CharacterCatalog {
 		content.Add(widget.NewButton(string(key), func() {
-
+			fmt.Println("test")
 		}))
 	}
 	return content
