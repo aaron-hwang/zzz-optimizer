@@ -27,6 +27,8 @@ var (
 )
 
 // Main entry point for the actual program currently
+// TODO: Refactor code so that this logic lives in a seperate package (call it app?) to isolate view/controller logic, and so other parts of view
+// can communicate with it when necessary
 func main() {
 	fmt.Println("Hello world")
 
