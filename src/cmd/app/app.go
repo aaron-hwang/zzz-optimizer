@@ -1,4 +1,4 @@
-package main
+package optimizer_app
 
 import (
 	"fmt"
@@ -26,12 +26,8 @@ var (
 	pageTitle   *widget.Label
 )
 
-// Main entry point for the actual program currently
-// TODO: Refactor code so that this logic lives in a seperate package (call it app?) to isolate view/controller logic, and so other parts of view
-// can communicate with it when necessary
-func main() {
-	fmt.Println("Hello world")
-
+// Logic goes here
+func Run() {
 	// Structure should look like:
 	/*
 		Run optimizer app
@@ -71,6 +67,7 @@ func main() {
 	w.SetContent(split)
 	w.Resize(fyne.NewSize(WIDTH, HEIGHT))
 	w.ShowAndRun()
+
 }
 
 // This should handle creating the structure for the side menu where users will navigate between pages (team management, character management, disk drives, etc)
