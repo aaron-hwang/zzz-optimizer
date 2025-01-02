@@ -21,6 +21,11 @@ const (
 // The window that is currently on top to be rendered
 //var top fyne.Window
 
+var (
+	pageContent *fyne.Container
+	pageTitle   *widget.Label
+)
+
 // Main entry point for the actual program currently
 func main() {
 	fmt.Println("Hello world")
@@ -48,13 +53,15 @@ func main() {
 	// TODO: USE
 	fmt.Println("Characters loaded into string.")
 
-	pageTitle := widget.NewLabel("Component")
-	pageContent := container.NewStack()
+	pageTitle = widget.NewLabel("Component")
+	pageContent = container.NewStack()
+
 	setMenu := func(m menus.Menu) {
 		pageTitle.SetText(m.Title)
 		pageContent.Objects = []fyne.CanvasObject{m.View(w)}
 		pageContent.Refresh()
 	}
+
 	tutorial := container.NewBorder(
 		container.NewVBox(pageTitle, widget.NewSeparator()), nil, nil, nil, pageContent)
 	split := container.NewHSplit(makeSidebarNav(setMenu), tutorial)
