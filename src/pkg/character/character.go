@@ -28,6 +28,14 @@ type Character struct {
 	Disks [6]drivedisk.DriveDisk
 }
 
+func NewLevelZeroChar(key key.Character) Character {
+	if _, ok := CharacterCatalog[key]; !ok {
+		panic("Attempted to init character that does not exist")
+	}
+	newchar := Character{Key: key, Level: 0}
+	return newchar
+}
+
 type SkillLevels struct {
 	Core        int
 	Basic       int
