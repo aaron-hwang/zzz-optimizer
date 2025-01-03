@@ -30,6 +30,7 @@ type Character struct {
 
 func NewLevelZeroChar(key key.Character) Character {
 	if _, ok := CharacterCatalog[key]; !ok {
+		// TODO: Program should not die here, but throw an error for the consumer to handle.
 		panic("Attempted to init character that does not exist")
 	}
 	newchar := Character{Key: key, Level: 0}
