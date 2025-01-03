@@ -1,9 +1,6 @@
 package ui
 
 import (
-	"fmt"
-	"strings"
-	"zzz-optimizer/pkg/character"
 	"zzz-optimizer/pkg/optimizer"
 
 	"fyne.io/fyne/v2"
@@ -37,14 +34,6 @@ func (g *Gui) Display() {
 	a := app.New()
 	g.window = a.NewWindow("ZZZ Optimizer")
 	//top = w
-
-	Optimizer.AddCharacter(character.NewDefaultChar())
-	var sb strings.Builder
-	for key := range character.CharacterCatalog {
-		sb.WriteString(string(key))
-	}
-	// TODO: USE
-	fmt.Println("Characters loaded into string.")
 
 	g.pageTitle = widget.NewLabel("Component")
 	g.pageContent = container.NewStack()
