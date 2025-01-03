@@ -14,6 +14,6 @@ var (
 	}
 
 	MenuIndex = map[string][]string{
-		"": {"characters"},
+		"": {"characters", "teams"},
 	}
 )
