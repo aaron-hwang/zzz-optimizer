@@ -4,6 +4,7 @@ package optimizer
 // ensures that they are registered in the character catalog.
 
 import (
+	_ "zzz-optimizer/implementations/character/anby"
 	_ "zzz-optimizer/implementations/character/dummy"
 	_ "zzz-optimizer/implementations/character/miyabi"
 )
