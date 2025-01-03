@@ -22,7 +22,7 @@ type Optimizer struct {
 }
 
 func NewOptimizer() *Optimizer {
-	opti := Optimizer{Characters: make(map[key.Character]character.Character, 1), Wengines: make([]wengine.Wengine, 1)}
+	opti := Optimizer{Characters: make(map[key.Character]character.Character), Wengines: make([]wengine.Wengine, 1)}
 	return &opti
 }
 
